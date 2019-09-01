@@ -17,15 +17,15 @@ class OperatePod:
     def turn_off(self):
         GPIO.output(self.cooker_pin, False)
 
+def test():
+    obj = OperatePod()
 
-obj = OperatePod()
+    print("turn on")
+    obj.turn_on()
+    print("sleep")
+    time.sleep(10)
+    print("turn off")
+    obj.turn_off()
 
-print("turn on")
-obj.turn_on()
-print("sleep")
-time.sleep(10)
-print("turn off")
-obj.turn_off()
-
-obj.end()
+    obj.end()
 
