@@ -19,9 +19,9 @@ def main(running_time,check_interval,max_temperature):
             pod.turn_on()
         elif temperature >= max_temperature:
             pod.turn_off()
-
         time.sleep(check_interval) #20秒ごとに温度を測定
-    elapse = time.time()
+        elapse = time.time()
+
     pod.end()
 
     print("")
