@@ -1,3 +1,4 @@
+# coding:utf-8
 import temperature as temper
 import operatePod as opPod
 import time as time
