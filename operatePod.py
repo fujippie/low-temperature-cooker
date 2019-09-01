@@ -2,23 +2,30 @@
 import RPi.GPIO as GPIO
 import time as time
 
-GPIO.setmode(GPIO.BOARD)
+class OperatePod:
+    cooker_pin =33
+    def __init__(self):
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setup(self.cooker_pin, GPIO.OUT)
+    def end(self):
+        self.turn_off()
+        GPIO.cleanup()
 
-cooker_pin = 33
-GPIO.setup(cooker_pin, GPIO.OUT)
+    def turn_on(self):
+        GPIO.output(self.cooker_pin, True)
 
-def turn_on():
-    GPIO.output(cooker_pin, True)
-   # redis_db.set('cooker_is_heating', 'true')
+    def turn_off(self):
+        GPIO.output(self.cooker_pin, False)
 
-def turn_off():
-    GPIO.output(cooker_pin, False)
-  #  redis_db.set('cooker_is_heating', 'false')
-  
+
+obj = OperatePod()
+
 print("turn on")
-turn_on()
+obj.turn_on()
 print("sleep")
-time.sleep(5)
+time.sleep(10)
 print("turn off")
-turn_off()
-GPIO.cleanup()
+obj.turn_off()
+
+obj.end()
+
