@@ -13,7 +13,7 @@ def main(running_time,check_interval,max_temperature):
     start = time.time()
     elapse = 0
 
-    while elapse - start == running_time:
+    while elapse - start != running_time:
         temperature = temper.getTemperature()
         if temperature <= max_temperature :
             pod.turn_on()
