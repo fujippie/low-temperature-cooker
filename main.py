@@ -8,7 +8,7 @@ import datetime as datetime
 def main(running_time,check_interval,max_temperature):
     #ログファイル
     log = open(  "log/"+datetime.datetime.now().strftime("%m-%d_%H-%M")  +".txt",'w')
-    log.write("start\n")
+    log.write("start稼働，間隔，設定温度="+running_time+","+check_interval+","+max_temperature +"\n")
 
     pod = opPod.OperatePod()
 
@@ -26,9 +26,9 @@ def main(running_time,check_interval,max_temperature):
         elapse = time.time()
 
         print("temperature",temperature,"elapse-start",elapse - start)
-        
+
     pod.end()
     log.close()
 
-main(30*60,5,60)
+main(30*60,5,69)
 
