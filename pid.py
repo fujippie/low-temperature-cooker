@@ -1,6 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
-from numpy.random import *
+#from numpy.random import *
 M = 0.00
 M1 = 0.00
 goal = 50.00
@@ -19,6 +19,8 @@ y_list = []
 
 x_list.append(0)
 y_list.append(0.00)
+
+print(y_list[100])
 
 
 for i in range(1, t):
