@@ -30,5 +30,5 @@ def main(running_time,check_interval,max_temperature):
     pod.end()
     log.close()
 
-main(30*60,5,69)
+main(33*60,3,69)
 
