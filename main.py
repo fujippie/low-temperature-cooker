@@ -2,12 +2,14 @@
 import temperature as temper
 import operatePod as opPod
 import time as time
+import datetime as datetime
 
-#main
-#running_time   :稼働時間(秒)
-#check_interval :温度計測間隔(秒)
-#max_temperature:設定温度(℃)
+#running_time :稼働時間(秒)　#check_interval :温度計測間隔(秒)　#max_temperature:設定温度(℃)
 def main(running_time,check_interval,max_temperature):
+    #ログファイル
+    log = open(nodatetime.datetime.now()w.strftime("%Y-%m-%d_%H-%M")+".txt",'w')
+    log.write("start\n")
+
     pod = opPod.OperatePod()
 
     start = time.time()
@@ -15,16 +17,14 @@ def main(running_time,check_interval,max_temperature):
 
     while elapse - start != running_time:
         temperature = temper.getTemperature()
+        log.write("時間"+nodatetime.datetime.now()w.strftime("%H-%M-%S")+"/温度:"+temperature+"℃")
         if temperature <= max_temperature :
             pod.turn_on()
         elif temperature >= max_temperature:
             pod.turn_off()
         time.sleep(check_interval) #20秒ごとに温度を測定
         elapse = time.time()
-
     pod.end()
-
-    print("")
 
 
 main(10,5,60)
