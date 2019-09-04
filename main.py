@@ -17,7 +17,7 @@ def main(running_time,check_interval,max_temperature):
 
     while elapse - start != running_time:
         temperature = temper.getTemperature()
-        log.write("時間"+nodatetime.datetime.now()w.strftime("%H-%M-%S")+"/温度:"+temperature+"℃")
+        log.write("時間"+datetime.datetime.now().strftime("%H-%M-%S")+"/温度:"+temperature+"℃")
         if temperature <= max_temperature :
             pod.turn_on()
         elif temperature >= max_temperature:
