@@ -15,7 +15,7 @@ def main(running_time,check_interval,max_temperature):
     start = time.time()
     elapse = 0
 
-    while elapse - start >= running_time:
+    while elapse - start <= running_time:
         temperature = temper.getTemperature()
         log.write("時間"+ datetime.datetime.now().strftime("%H-%M-%S") +"/温度:" + str( temperature ) +"℃\n")
         if temperature <= max_temperature :
@@ -24,6 +24,9 @@ def main(running_time,check_interval,max_temperature):
             pod.turn_off()
         time.sleep(check_interval) 
         elapse = time.time()
+
+        print("temperature",temperature,"elapse-start",elapse - start)
+        
     pod.end()
     log.close()
 
