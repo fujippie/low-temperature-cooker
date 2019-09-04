@@ -8,7 +8,7 @@ import datetime as datetime
 def main(running_time,check_interval,max_temperature):
     #ログファイル
     log = open(  "log/"+datetime.datetime.now().strftime("%m-%d_%H-%M")  +".txt",'w')
-    log.write("start稼働，間隔，設定温度="+running_time+","+check_interval+","+max_temperature +"\n")
+    log.write("start稼働，間隔，設定温度="+ str(running_time) +","+ str(check_interval )+","+ str(max_temperature) +"\n")
 
     pod = opPod.OperatePod()
 
